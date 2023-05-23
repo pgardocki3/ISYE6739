@@ -1,0 +1,104 @@
+---
+title: "ISyE 6739 Homework 2"
+author: "Patrick Gardocki"
+date: "2023-05-23"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 3-109
+X = number of passengers that do not show up
+
+X follows a binomial distribution 
+
+## a)
+$P(X \ge 5) = 1 - P(X\le 4) = 1 - \sum\limits_{x=0}^{4} {125 \choose x}(0.1)^x(0.9)^{125-x} = 0.9961$
+```{r 3-109a}
+1 - pbinom(4,125,0.1)
+```
+
+## b) 
+$P(X>5) = 1 - P(X\le 5) = 1 - \sum\limits_{x=0}^{5} {125 \choose x}(0.1)^x(0.9)^{125-x} = 0.9885$
+```{r 3-109b}
+1 - pbinom(5,125,0.1)
+```
+
+# 3-173
+
+## a)
+ED = number of emergency department visits per day
+$\lambda T = 1.8$
+$P(ED>5) = 1 - \sum\limits_{x=0}^{5}\frac{e^{-1.8}(1.8)^x}{x!} = 0.0103$
+```{r 3-173a}
+1 - ppois(5,1.8)
+```
+
+## b)
+EW = number of emergency department visits per week
+$\lambda T = 1.8 \times 7 = 12.6$
+$P(ED<5) = \sum\limits_{x=0}^{4}\frac{e^{-12.6}(12.6)^x}{x!} = 0.00497$
+```{r 3-173b}
+ppois(4,12.6)
+```
+
+## c)
+ET = number of visits in T days 
+$\lambda T=1.8T$
+$P(ET\ge1) = 1 -P(ET=0) = 1 - \frac{e^{-1.8T}(1.8T)^0}{0!}\\$
+$e^{-1.8T} = 0.01 = ln(e^{-1.8T}) = ln(0.01) \rightarrow T = 2.558\;days$
+```{r 3-173c}
+log(0.01)/-1.8
+```
+
+## d)
+Solve for $\lambda$.
+$P(ED>5)=0.1 = 1- \sum\limits_{x=0}^{5}\frac{e^{-\lambda}(\lambda)^x}{x!}\\$
+
+
+# 4-4
+$f(x)=\frac{2}{x^3} \: for\:x>1$
+
+## a)
+$P(X<2) = \int\limits_{1}^{2}\frac{2}{x^3}dx= \left( \frac{-1}{x^2}\right)|_{1}^{2} = 0.75$
+```{r 4-4a}
+integrand <- function(x) {2/x^3}
+integrate(integrand,1,2)
+```
+
+## b)
+$P(X>5) = \int\limits_{5}^{\infty}\frac{2}{x^3}dx= \left( \frac{-1}{x^2}\right)|_{5}^{\infty} = 0.04$
+```{r 4-4b}
+integrand <- function(x) {2/x^3}
+integrate(integrand,5,Inf)
+```
+
+## c)
+$P(4<X<8) = \int\limits_{4}^{8}\frac{2}{x^3}dx= \left( \frac{-1}{x^2}\right)|_{4}^{8} = 0.0469$
+```{r 4-4c}
+integrand <- function(x) {2/x^3}
+integrate(integrand,4,8)
+```
+
+## d)
+$P(X<4\:or\:X>8) = \int\limits_{1}^{4}\frac{2}{x^3}dx + \int\limits_{8}^{\infty}\frac{2}{x^3}dx = 0.9531$
+```{r 4-4d}
+integrand <- function(x) {2/x^3}
+a <- integrate(integrand,1,4)
+b <- integrate(integrand,8,Inf)
+a[[1]] + b[[1]]
+
+```
+
+## e)
+Find x, where $P(X<x)=0.95$.
+$\\P(X<x) = \int\limits_{1}^{x}\frac{2}{x^3} dx = \left(\frac{-1}{x^2}\right)|_{1}^{x} = \left(\frac{-1}{x^2}\right)- (-1)= 0.95\\$
+$\therefore x = 4.4721$
+
+# 4-82
+
+## a)
+
+
