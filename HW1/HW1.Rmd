@@ -1,7 +1,7 @@
 ---
 title: "ISyE 6739 Homework 1"
 author: "Patrick Gardocki"
-date: "2023-05-21"
+date: "2023-05-22"
 output: pdf_document
 ---
 
