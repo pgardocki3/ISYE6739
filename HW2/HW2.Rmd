@@ -98,7 +98,50 @@ $\\P(X<x) = \int\limits_{1}^{x}\frac{2}{x^3} dx = \left(\frac{-1}{x^2}\right)|_{
 $\therefore x = 4.4721$
 
 # 4-82
+Let W be required water in million gallons.
+Let S be storage capacity of 350 million gallons.
+$\mu = 310\; million;\:\sigma = 45\: million\\$
+$X\sim N(310,45^2)$
+## a)
+$P(W>S)=1-P(X\le S) = 1 - \Phi(\frac{350-310}{45}) = 0.1870$
+```{r 4-82a}
+pnorm(310,350,45)
+```
+
+## b) ???????????????
+$P(W>w) = P(Z>\frac{w-310}{45}) = 1 - \Phi(\frac{w}{45}) = 0.01\\$
+$\Phi(\frac{w-310}{45}) = 0.99 \rightarrow  \frac{w-310}{45} = 2.33$(From Cumulative Standard Normal Table)
+$\\x =414.85\: million\:gallons$
+
+## c) ??????????????
+$P(W<w) = P(Z<\frac{w-310}{45}) =  \Phi(\frac{w-310}{45}) = 0.05\\$
+$\Phi(\frac{w-310}{45}) = 0.05 \rightarrow  \frac{w-310}{45} = -1.64$ (From Cumulative Standard Normal Table)
+$\\x =236.2\: million\:gallons$
+
+
+## d)
+Find $\mu$, $X \sim N(\mu,45^2\\$
+$P(W>S)=1-P(X\le S) = 1 - \Phi(\frac{350-\mu}{45}) =0.01\\$
+$\Phi(\frac{350-\mu}{45}) = 0.99 \rightarrow \mu = 350-2.33\times45=245.15\\$
+Given 1.4 million people, mean daily demand per person = 175.107 gallons 
+
+
+
+# 4-117
 
 ## a)
 
 
+## b)
+
+
+## c)
+
+
+## d)
+
+
+
+# 5-6
+
+# Q2
