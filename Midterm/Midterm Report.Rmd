@@ -1,0 +1,17 @@
+---
+title: |
+      | ISyE 6739 Midterm Report
+      | Major: Mechanical
+author: "Patrick Gardocki"
+date: "2023-05-25"
+output: pdf_document
+---
+
+# ChatGPT detection propability
+## and after paraphrasing even
+
+
+
+# Die Casting Defects- multinopmial distribiution
+
+# Fermi-Dirac Distributiun
