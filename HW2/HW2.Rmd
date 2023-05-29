@@ -30,7 +30,7 @@ $P(X>5) = 1 - P(X\le 5) = 1 - \sum\limits_{x=0}^{5} {125 \choose x}(0.1)^x(0.9)^
 
 ## a)
 ED = number of emergency department visits per day
-$\lambda T = 1.8$
+$\lambda T = 1.8\\$
 $P(ED>5) = 1 - \sum\limits_{x=0}^{5}\frac{e^{-1.8}(1.8)^x}{x!} = 0.0103$
 ```{r 3-173a}
 1 - ppois(5,1.8)
@@ -38,7 +38,7 @@ $P(ED>5) = 1 - \sum\limits_{x=0}^{5}\frac{e^{-1.8}(1.8)^x}{x!} = 0.0103$
 
 ## b)
 EW = number of emergency department visits per week
-$\lambda T = 1.8 \times 7 = 12.6$
+$\lambda T = 1.8 \times 7 = 12.6\\$
 $P(ED<5) = \sum\limits_{x=0}^{4}\frac{e^{-12.6}(12.6)^x}{x!} = 0.00497$
 ```{r 3-173b}
 ppois(4,12.6)
@@ -46,7 +46,7 @@ ppois(4,12.6)
 
 ## c)
 ET = number of visits in T days 
-$\lambda T=1.8T$
+$\lambda T=1.8T\\$
 $P(ET\ge1) = 1 -P(ET=0) = 1 - \frac{e^{-1.8T}(1.8T)^0}{0!}\\$
 $e^{-1.8T} = 0.01 = ln(e^{-1.8T}) = ln(0.01) \rightarrow T = 2.558\;days$
 ```{r 3-173c}
@@ -76,7 +76,7 @@ integrate(integrand,5,Inf)
 ```
 
 ## c)
-$P(4<X<8) = \int\limits_{4}^{8}\frac{2}{x^3}dx= \left( \frac{-1}{x^2}\right)|_{4}^{8} = 0.0469$
+$P(4<X<8) = \int\limits_{4}^{8}\frac{2}{x^3}dx= \left( \frac{-1}{x^2}\right)|_{4}^{8} = 0.0468$
 ```{r 4-4c}
 integrand <- function(x) {2/x^3}
 integrate(integrand,4,8)
@@ -101,23 +101,30 @@ $\therefore x = 4.4721$
 Let W be required water in million gallons.
 Let S be storage capacity of 350 million gallons.
 $\mu = 310\; million;\:\sigma = 45\: million\\$
-$X\sim N(310,45^2)$
+$X\sim N(310,45^2)\\$
+
 ## a)
 $P(W>S)=1-P(X\le S) = 1 - \Phi(\frac{350-310}{45}) = 0.1870$
 ```{r 4-82a}
 pnorm(310,350,45)
 ```
 
-## b) ???????????????
+## b) 
 $P(W>w) = P(Z>\frac{w-310}{45}) = 1 - \Phi(\frac{w}{45}) = 0.01\\$
-$\Phi(\frac{w-310}{45}) = 0.99 \rightarrow  \frac{w-310}{45} = 2.33$(From Cumulative Standard Normal Table)
-$\\x =414.85\: million\:gallons$
+$\Phi(\frac{w-310}{45}) = 0.99 \rightarrow  \frac{w-310}{45} = 2.326$ (From Cumulative Standard Normal Table)
+$\\x =414.685\: million\:gallons$
+```{r 4-82 b}
+qnorm(0.99)*45+310
+```
 
-## c) ??????????????
+
+## c) 
 $P(W<w) = P(Z<\frac{w-310}{45}) =  \Phi(\frac{w-310}{45}) = 0.05\\$
-$\Phi(\frac{w-310}{45}) = 0.05 \rightarrow  \frac{w-310}{45} = -1.64$ (From Cumulative Standard Normal Table)
-$\\x =236.2\: million\:gallons$
-
+$\Phi(\frac{w-310}{45}) = 0.05 \rightarrow  \frac{w-310}{45} = -1.644$ (From Cumulative Standard Normal Table)
+$\\x =235.981\: million\:gallons$
+```{r 4-82 c}
+qnorm(0.05)*45+310
+```
 
 ## d)
 Find $\mu$, $X \sim N(\mu,45^2\\$
@@ -129,7 +136,8 @@ Given 1.4 million people, mean daily demand per person = 175.107 gallons
 
 # 4-117
 $\lambda = \frac{1}{E(X)} = \frac{1}{15}$
-X = time until first call
+X = time until first call $\\$
+
 ## a)
 $P(X>30) = \int\limits_{30}^{\infty} \frac{1}{15}e^{\frac{-x}{15}}dx = e^{-2}=0.1353$ 
 ```{r 4-117 a}
@@ -161,7 +169,7 @@ log(0.1)*-15
 # 5-6
 
 ## a)
-
+$P(X=x, Y=y) = \frac{{60\choose 4-x-y}{30\choose y}{10\choose x}}{{100\choose 4}}\:for\:X\ge0,Y\ge0,X+Y\le4$
 
 The table below shows the PMF table for $x,y \in \left\{ 0,1,2,3,4 \right\}$
 ```{r 5-6 a}
@@ -213,6 +221,13 @@ kable(df1,"latex",align="c", caption="PMF",label="5-6a",escape = FALSE)%>%
     kable_styling(latex_options = "hold_position")
 ```
 
+
+
+$\\$
+$\\$
+$\\$
+$\\$
+
 ## e)
 $E(Y|X=3) = \sum\limits_{0}^{4}y_i*f_{Y|3}(y)_i= 0*0.857 + 1*0.143 = 0.143$
 
@@ -230,6 +245,7 @@ $0.1354 \ne 0.4187\times 0.2994$
 # Q2
 
 ## a)
+The probability of a correct lassificationa follows a binomial distribution.
 $P(X) = {3\choose x}\times 0.98^x\times 0.02^{3-x}$
 ```{r Q2 a}
 df = data.frame()
