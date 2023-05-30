@@ -1,0 +1,114 @@
+---
+title: |
+      | ISyE 6739 Midterm Report
+      | Major: Mechanical
+author: "Patrick Gardocki"
+date: "2023-05-31"
+output: pdf_document
+---
+
+# (Ch.3) ChatGPT detection propability
+## and after paraphrasing even
+
+CH3-6
+
+ChatGPT has exploded in popularity recently, and people are eager to utilize its potential. Professors at for-profit universities have taken to ChatGPT to create exam questions and solutions for them to save time and effort. The professors are cheap and only use the free version of ChatGPT which is known to only have a 18% success rate of creating correct solution sets. 
+
+## (a)
+### Creates 10 exam questions in one prompt
+3-6 Binomial
+
+## (b)
+### Creates 10 exam questions 1 at a time (10 prompts)
+3-7
+
+
+
+
+# (Ch.4) Die Casting Defects - Weibull
+4-10
+Ref: https://link.springer.com/chapter/10.1007/978-3-319-48130-2_26 
+
+
+  The need for stronger automotive aluminum die cast components has steadily grown with the need to reduce weight and increase strength of cars. Fracture mechanics state that 'ideal' characteristics can never be observed in real life due to the presence of defects. These defects are modeled as statistical distributions. Wallodi Weibull introduced a new distribution that is widely used to model defects in metals. 
+  The material in question is sand casted Aluminum Alloy 319. This alloy is widely used in structural castings for engine components. The equations below model the probability density function and cumulative density funcitons of the probability of failure at the given elongation. 
+
+ADD IMAGE!!!!!!!!!!!!!!
+
+PDF: $f(x) = \left(\frac{2.53}{6.43}\right)\left(\frac{x-5.11}{6.43}\right)^{1.53}\exp\left(-\left(\frac{x-5.11}{6.43}\right)^{2.53}\right)$
+CDF: $F(x) =1-\exp\left(-\left(\frac{\left(x\right)}{6.43}\right)^{2.53}\right)$
+
+
+## a) Determine the probability of failure before an elongation of 7.2%?
+$P(X\le 7.2) = F(7.2) = 1-e^{-(\frac{7.2}{6.43})^{2.53}}=0.7358$
+```{r 4-a}
+pweibull(7.2,2.53,6.43)
+```
+
+
+## b) Determine what elongation % A319 can survive 85% of the time?
+$P(X>x) = 1-P(X\le x) = 1-F(x) = e^{-(\frac{x}{6.43})^{2.53}}=0.85\\$
+Solve for x, $x=3.13556 % \\$
+Checking solution:
+```{r 4-b}
+1-pweibull(3.13556,2.53,6.43)
+```
+
+## c) If 100 castings are tested, what is the probability that 85 will not fail till 2.0% elongation?
+Let X be the number of castings that pass at 2% elongation. Then X is a binomial random variable.
+$P(X\le 2.0) = F(2.0) = 1-e^{-(\frac{2.0}{6.43})^{2.53}}=0.1352596$
+$P(X=85) = {100\choose 85}*0.1352596^{85}*(1-0.1352596)^{100-85} = 0.726001$
+
+```{r 4-c}
+sum(dbinom(85:100,100,1-0.1352596))
+```
+
+
+## d) What is the mean elongation and variance at which failure occurs?
+$E(X) = 6.43*\Gamma \left( 1 + \frac{1}{2.53}\right)=5.70683\\$
+$V(X) = 6.43^2\Gamma \left( 1+ \frac{2}{2.53} \right)-6.43^2 \left[ \Gamma\left( 1 + \frac{1}{2.53}\right) \right] ^2=5.837331$
+
+```{r 4-d}
+6.43*gamma(1+ (1/2.53))
+6.43^2*gamma(1+(2/2.53))-6.43^2*(gamma(1+(1/2.53)))^2
+```
+
+
+
+
+
+
+
+
+
+# (Ch.5) Fermi-Dirac Distributiun  ds
+
+Fermi level in potassium (K) is 2.1 eV.
+k = $8.625x10^{-5} \frac{eV}{K}\:$, $E_f = 2.1\;eV$
+$\\f(E,T) = \frac{1}{1+e^{\left( \frac{E-E_f}{kT}\right)}}$ $for\: T=\{200,400\}\\$
+
+
+
+# Die Casting Defects
+
+Porosity: 0.18
+Non-Fill: 0.09
+Dimensional: 0.12
+Solder: 0.3
+
+
+```{r 5-1}
+library(kableExtra)
+library(knitr)
+df1 = data.frame(y=c("0.3","0.6","0.9","$f_y(y)$"),p=c(0.012,0.06,0.17,0.242),nf=c(0.08,0.09,0.21,0.38),dim=c(0,0.02,0.01,0.03),solder=c(0.01,0.03,0.09,0.13),OK=c(0.108,0.10,0.01,0.218),fx=c(0.21,0.3,0.49,1))
+names(df1) <- c("Humidity","Porosity","Non-Fill","Dimensional","Solder","OK","$f_x(x)$")
+
+kable(df1,"latex",align="c", caption="PMF",label="5-6a",escape = FALSE) %>%
+    kable_styling(latex_options = "hold_position")
+```
+
+
+
+
+
+
