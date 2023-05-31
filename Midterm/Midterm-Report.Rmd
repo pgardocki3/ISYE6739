@@ -7,13 +7,6 @@ date: "2023-05-31"
 output: pdf_document
 ---
 
-TO DO:
-
-1.d
-2.d
-4.c
-
-
 # 1. Die Cast Defect Detection (Ch.2) 
 One main obstacle in die-casting is the presence of porosity. This is the entrapment of a gas in the metal that causes bubbles of pockets. The image depicts examples of porosity [1] The presence of porosity can cause a part to become defective if the location of it is in a critical area, or there is so much of it, that the porosity reduces the structural integrity of the component. For a run of 10,000 parts, the following table depicts the number of parts classified by present porosity and if it is a defective part. The data was collected from a production run from May 23-26 at a die caster located in Chicago, IL [3]. The part could also be defective from other sources. 
 <center>
@@ -32,9 +25,11 @@ kable(df1,"latex",align="c", caption="Classified Parts",label="5-6a",escape = FA
     kable_styling(latex_options = "hold_position")
 ```
 
-## a) A standard defect rate for a die cast part is less than 10%. Determine if this part meets that standard and what is the defect rate for a part that has no prosity.
+### Let A denote a part with no porosity and B denote a part being defective.
 
-Let A denote a part with no porosity and B denote a part being defective. Find $P(B)$ and $P(A \cap B)\\$
+## a) A standard defect rate for a die cast part is less than 10%. Determine if this part meets that standard and what is the defect rate for a part that has no porosity.
+
+Find $P(B)$ and $P(A \cap B)\\$
 $P(B) =\frac{1613}{10000}=0.1613\: \therefore$ the part does not meet the standard defect rate of less than 10% 
 $\\ P(A \cap B) =\frac{748}{10000}=0.0748$ If a part has no porosity, its defect rate is 7.48%
 
@@ -45,13 +40,14 @@ $P(B|A') = \frac{P(A'\cap B)}{P(A')} =\frac{865}{987}=0.8763$
 ## c) How many defective parts did not have porosity?
 $P(A' \cap B) = \frac{748}{1613}=0.4637$
 
-## d) 
+## d) Find the probability of a part having porosity given it being not defective?
+$P(A'|B') = \frac{P(B'\cap A')}{P(B')} = \frac{112}{8387}=0.013354$
 
 
 
-# 2. ChatGPT detection propability (Ch.3)
+# 2. ChatGPT Exam Solutions (Ch.3)
 
-ChatGPT has exploded in popularity recently, and people are eager to utilize its potential. Professors at for-profit universities have taken to ChatGPT to create exam questions and solutions for them to save time and effort. The professors are cheap and only use the free version of ChatGPT which is known to only have a 18% success rate of creating correct solution sets. 
+ChatGPT has exploded in popularity recently, and people are eager to utilize its potential. Professors at for-profit universities have taken to ChatGPT to create exam questions and solutions to save time and effort. The professors are cheap and only use the free version of ChatGPT which is known to only have a 18% success rate of creating correct solution sets for questions it generates. 
 
 ## a) What is the probability that exactly 9 out of 10 solutions are correct if ChatGPT is used?
 
@@ -67,12 +63,21 @@ $P(X\ge5)=\sum\limits_{x=5}^{10}{10\choose x} (0.82)^x(0.18)^{10-x}=0.003669387$
 pbinom(5,10,.18, lower.tail=FALSE)
 ```
 
-## c) What is the probability of a student catching the proffessors error within 24 hours if every 18 hours the solution manual is opened by a random student?
-$\lambda T = 18\: hours\\$
-$P(X=24)=\frac{e^{-18}18^24}{24!}=0.9317$
+## c) What is the probability of at least 1 student catching the professors error within 1 day if at random, the solution manual is checked twice per day?
+$\lambda T = 2\\$
+$P(X\ge1)=\frac{e^{-2}18^3}{3!}=0.5939$
 ```{r 3-c}
-ppois(3,1.5)
+1-ppois(1,2)
 ```
+
+## d) The university policy states that if a student thinks a professors solutions are incorrect, they can appeal the exam grade only if at least 5% of the class voices the same concern within 72 hours of the exam. Assume that 6 students are needed to find the error within 3 days, what is this probability?
+$\lambda T = 2\times 3 =6\\$
+$P(X\ge6)=\frac{e^{-6}18^6}{6!}=0.3936$
+```{r 3-d}
+1-ppois(6,6)
+```
+
+
 
 # 3. Die Casting Defects - Weibull (Ch.4)
 
@@ -141,11 +146,12 @@ library(knitr)
 df1 = data.frame(y=c("Low","Medium","High"),p=c(0.012,0.06,0.17),nf=c(0.08,0.09,0.21),dim=c(0,0.02,0.01),solder=c(0.01,0.03,0.09),OK=c(0.108,0.10,0.01))
 names(df1) <- c("Humidity","Porosity (1)","Non-Fill (2)","Dimensional (3)","Solder (4)","OK (5)")
 
-kable(df1,"latex",align="c", caption="PMF",label="5-6a",escape = FALSE) %>%
+kable(df1,"latex",align="c", caption="Joint Probability Distributions",label="5-6a",escape = FALSE) %>%
     kable_styling(latex_options = "hold_position")
 ```
+\newpage
+## a) Determine the margnial probability distributions for each defect type and humidity level. 
 
-## a) Determine the margnial probability distributions for each defect type and humidity level.  
 
 ```{r 5-a, echo=FALSE}
 library(kableExtra)
@@ -153,7 +159,7 @@ library(knitr)
 df1 = data.frame(y=c("Low","Medium","High","$f_d(d)$"),p=c(0.012,0.06,0.17,0.242),nf=c(0.08,0.09,0.21,0.38),dim=c(0,0.02,0.01,0.03),solder=c(0.01,0.03,0.09,0.13),OK=c(0.108,0.10,0.01,0.218),fx=c(0.21,0.3,0.49,1))
 names(df1) <- c("Humidity","Porosity (1)","Non-Fill (2)","Dimensional (3)","Solder (4)","OK (5)","$f_h(h)$")
 
-kable(df1,"latex",align="c", caption="PMF",label="5-6a",escape = FALSE) %>%
+kable(df1,"latex",align="c", caption="Marginal Probability Distributions",label="5-6a",escape = FALSE) %>%
     kable_styling(latex_options = "hold_position")
 ```
 
@@ -162,7 +168,10 @@ kable(df1,"latex",align="c", caption="PMF",label="5-6a",escape = FALSE) %>%
 $P(D=1|H=3) = \frac{0.17}{0.49}=0.3469\\$
 $P(0<D<4|H=3) = \frac{0.17+0.21+0.01+0.09}{0.49}=0.97959\\$
 
-## c) 
+## c) Assume the company decided to run production on only low humidity days, what is the probability that the parts will have no defects?
+$P(D=5|H=1) =\frac{0.108}{0.21}=0.5142$
+
+
 
 
 ## d) Are defects and humidity independent?
