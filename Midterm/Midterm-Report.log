@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.28)  30 MAY 2023 22:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.28)  30 MAY 2023 22:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -562,42 +562,42 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <Images/def.jpg, id=84, 225.84375pt x 144.54pt>
 File: Images/def.jpg Graphic file (type jpg)
 <use Images/def.jpg>
-Package pdftex.def Info: Images/def.jpg  used on input line 144.
+Package pdftex.def Info: Images/def.jpg  used on input line 148.
 (pdftex.def)             Requested size: 225.85352pt x 144.54623pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 152.
+(Font)              <10> on input line 156.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 152.
+(Font)              <7> on input line 156.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 152.
+(Font)              <5> on input line 156.
 [1
 
-{/Users/patrickgardocki/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} <./Images/def.jpg>]
+{/Users/patrickgardocki/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./Images/def.jpg>]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 210.
+(amsmath)                 on input line 214.
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 213.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 217.
 (/Users/patrickgardocki/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [2{/Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-<Images/weibul.png, id=121, 424.58624pt x 297.11pt>
+) [2{/Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+<Images/weibul.png, id=119, 424.58624pt x 297.11pt>
 File: Images/weibul.png Graphic file (type png)
 <use Images/weibul.png>
-Package pdftex.def Info: Images/weibul.png  used on input line 276.
+Package pdftex.def Info: Images/weibul.png  used on input line 280.
 (pdftex.def)             Requested size: 424.60463pt x 297.12286pt.
-[3 <./Images/weibul.png>]
-<Images/types.jpg, id=133, 2055.68pt x 1076.02pt>
+[3 <./Images/weibul.png>] [4]
+<Images/types.jpg, id=140, 2055.68pt x 1076.02pt>
 File: Images/types.jpg Graphic file (type jpg)
 <use Images/types.jpg>
-Package pdftex.def Info: Images/types.jpg  used on input line 390.
+Package pdftex.def Info: Images/types.jpg  used on input line 394.
 (pdftex.def)             Requested size: 469.75385pt x 245.88678pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 440--442
+
+Underfull \hbox (badness 10000) in paragraph at lines 444--446
 
  []
 
@@ -611,13 +611,13 @@ Package rerunfilecheck Info: File `Midterm-Report.out' has not changed.
 Here is how much of TeX's memory you used:
  13220 strings out of 477998
  212250 string characters out of 5837893
- 1869785 words of memory out of 5000000
+ 1865785 words of memory out of 5000000
  33101 multiletter control sequences out of 15000+600000
  559265 words of font info for 72 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,10n,76p,1039b,464s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,76p,1039b,461s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></Users/patrickgardocki/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Midterm-Report.pdf (7 pages, 608189 bytes).
+Output written on Midterm-Report.pdf (7 pages, 607985 bytes).
 PDF statistics:
  255 PDF objects out of 1000 (max. 8388607)
  206 compressed objects within 3 object streams

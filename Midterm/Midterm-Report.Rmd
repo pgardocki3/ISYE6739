@@ -7,6 +7,13 @@ date: "2023-05-31"
 output: pdf_document
 ---
 
+TO DO:
+
+1.d
+2.d
+4.c
+
+
 # 1. Die Cast Defect Detection (Ch.2) 
 One main obstacle in die-casting is the presence of porosity. This is the entrapment of a gas in the metal that causes bubbles of pockets. The image depicts examples of porosity [1] The presence of porosity can cause a part to become defective if the location of it is in a critical area, or there is so much of it, that the porosity reduces the structural integrity of the component. For a run of 10,000 parts, the following table depicts the number of parts classified by present porosity and if it is a defective part. The data was collected from a production run from May 23-26 at a die caster located in Chicago, IL [3]. The part could also be defective from other sources. 
 <center>
