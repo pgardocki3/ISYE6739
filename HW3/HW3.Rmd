@@ -1,0 +1,112 @@
+---
+title: "HW3"
+author: "Patrick Gardocki"
+date: "2023-06-09"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 6-30
+
+```{r 6-30}
+octane = read.table("6-30.txt",header = TRUE)
+
+octane=octane$Rating
+
+o = sort(octane)
+
+quantile(o, c(0.25,0.5,0.75),type=6)
+
+stem(octane, scale=2)
+```
+
+
+
+# 6-46 REL DENSity is 1/2??????????
+
+```{r 6-46}
+octane = read.table("6-30.txt",header = TRUE)
+
+octane=octane$Rating
+
+obj = hist(octane,breaks=8)
+length(octane)
+library(knitr)
+library(kableExtra)
+df = data.frame(Frequency = obj$counts)
+
+n=length(obj$breaks)
+for(i in 1:(n-2)){
+  df$Class[i]=paste(obj$breaks[i],"$\\le x <$", obj$breaks[i+1])
+}
+
+df$Class[n-1] = paste(obj$breaks[n-1],"$\\le x \\le$", obj$breaks[n])
+
+df$"Relative Frequency"= obj$density*2
+for(i in 1:(n-1)){
+  df$"Cumulative Frequency"[i]=paste(cumsum(obj$counts)[i])
+  df$"Cumulative Relative Frequency"[i]=paste(cumsum(obj$density*2)[i])
+}
+
+kable(df[c(2,1,3,4,5)], "latex", align="c", caption="Frecquency Distribution Table", escape = FALSE)
+
+
+
+
+```
+
+
+# 6-81
+```{r 6-81}
+Expr = read.table("6-81.txt",header = TRUE)
+
+attach(Expr)
+
+boxplot(Expression~Group, main="Boxplot of 4 Groups",
+   xlab="Group", ylab="Expression")
+
+```
+The control groups seem to have the same median value but drastically different variances. The 'high dose' group has a mush smaller variance and slightly lower median expression as well.
+
+
+# 6-98
+```{r 6-98}
+octane = read.table("6-30.txt",header = TRUE)
+
+octane=octane$Rating
+qqnorm(octane,datex=TRUE)
+qqline(octane,datex=TRUE)
+
+```
+
+The Normal Probability plot suggests that the data is normally distributed but seems to break down at both ends of the data range. 
+
+# 7-12
+$\mu_X = 8.2\: minutes,\: n=49,\; \sigma_X =1.5\; minutes,\: \sigma_{\bar{x}} = \frac{\sigma_X}{\sqrt{n}}=0.2143$
+Under Central Limit Theorem, $\bar{X}$ is approx. normally distributed.
+
+## (a)
+$P(\bar{X}<10)=P(Z<\frac{10-\mu}{\sigma_{\bar{X}}})=P(Z<8.4) =1$
+
+## (b)
+$P(5<\bar{X}<10)=P(\frac{5-\mu}{\sigma_{\bar{X}}}<Z<\frac{10-\mu}{\sigma_{\bar{X}}})=P(Z<8.4)-P(Z<-14.932) =1-0=1$
+
+## (c)
+$P(\bar{X}<6)=P(Z<\frac{6-\mu}{\sigma_{\bar{X}}})=P(Z<-10.27) =0$
+
+
+# 7-37
+
+
+
+
+# 7-44
+
+# 8-1
+
+# 8-41
+
+# 8-53
