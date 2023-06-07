@@ -77,12 +77,13 @@ The control groups seem to have the same median value but drastically different 
 octane = read.table("6-30.txt",header = TRUE)
 
 octane=octane$Rating
-qqnorm(octane,datex=TRUE)
-qqline(octane,datex=TRUE)
+qqnorm(octane)
+qqline(octane)
 
 ```
 
 The Normal Probability plot suggests that the data is normally distributed but seems to break down at both ends of the data range. 
+
 
 # 7-12
 $\mu_X = 8.2\: minutes,\: n=49,\; \sigma_X =1.5\; minutes,\: \sigma_{\bar{x}} = \frac{\sigma_X}{\sqrt{n}}=0.2143$
@@ -98,15 +99,101 @@ $P(5<\bar{X}<10)=P(\frac{5-\mu}{\sigma_{\bar{X}}}<Z<\frac{10-\mu}{\sigma_{\bar{X
 $P(\bar{X}<6)=P(Z<\frac{6-\mu}{\sigma_{\bar{X}}})=P(Z<-10.27) =0$
 
 
+
 # 7-37
 
+## a)
+if $E({\hat{\Theta}})=\Theta$ then unbiased estimator
+$\\E({\hat{X_1}}-{\hat{X_2}}) = E({\hat{X_1}})-E({\hat{X_2}}) = \mu_1 - \mu_2 \therefore$ unbiased
+
+## b)
+$\sigma_{\bar{X}}=\sqrt{V(\hat{\Theta})} =\sqrt{V({\hat{X_1}}-{\hat{X_2}})}= \sqrt{V({\hat{X_1}})+V({\hat{X_2}})+2COV({\hat{X_1}},{\hat{X_2}})}= \sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\\$
+
+Estimating the standard error could be done by replacing the variance, $\sigma$ with sample standard deviation, S.
+
+
+## c)
+$S_P^2=\frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2}\\$
+$E(S_P^2) = E(\frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2})= \frac{1}{n_1+n_2-2} \left( (n_1-1)E(S_1^2)+(n_2-1)E(S_2^2)\right)=\frac{1}{n_1+n_2-2} \left( (n_1-1)*\sigma_1^2+(n_2-1)*\sigma_2^2\right)=\sigma^2*\frac{n_1+n_2-2}{n_1+n_2-2}=\sigma^2$
 
 
 
-# 7-44
+# 7-44 CHECK!!!!!!!!!
+$f(x)=p(1-p)^{x-1}\\$
+$L(p) =\prod\limits_{i=1}^n p(1-p)^{x_i-1} = p^n(1-p)^{\sum\limits_{i=1}^n x_i-n}\\$
+$l(p)=nln(p) + (\sum\limits_{i=1}^n x_i-n)ln(1-p)$
+$\\\frac{\partial l}{\partial u} = 0 = \frac{n}{p}-\frac{\sum\limits_{i=1}^n x_i-n}{1-p} =\frac{n(1-p)-p\sum\limits_{i=1}^n x_i-n}{p(1-p)} = n-p\sum\limits_{i=1}^n x_i \therefore\\ p= \frac{n}{\sum\limits_{i=1}^n x_i}\\$
+
+
 
 # 8-1
 
+## a)
+$z_0 = 2.14 \rightarrow P(Z<2.14)=0.9838 \therefore \alpha=2\times(1-0.9838) \rightarrow CI=100\times(1-\alpha)= 96.76$%
+
+## b)
+$z_0 = 2.49 \rightarrow P(Z<2.49)=0.9838 \therefore \alpha=2\times(1-0.9963) \rightarrow CI=100\times(1-\alpha)= 98.72$%
+
+## c)
+$z_0 = 1.85 \rightarrow P(Z<1.85)=0.9678 \therefore \alpha=2\times(1-0.9678) \rightarrow CI=100\times(1-\alpha)= 93.56$%
+
+## d)
+$z_0 = 2.00 \rightarrow P(Z<2.00)=0.9772 \therefore \alpha=(1-0.9772) \rightarrow CI=100\times(1-\alpha)= 97.72$%
+
+## e)
+$z_0 = 1.96 \rightarrow P(Z<1.96)=0.9750 \therefore \alpha=(1-0.9750) \rightarrow CI=100\times(1-\alpha)= 97.50$%
+
+
+
 # 8-41
 
+## a)
+```{r 8-41a}
+speed = c(3.775302, 3.350679, 4.217981, 4.030324, 4.639692, 4.139665, 4.395575, 4.824257, 4.268119, 4.584193, 4.930027, 4.315973, 4.600101)
+qqnorm(speed)
+qqline(speed)
+
+
+library(nortest)
+ad.test(speed)
+
+```
+
+## b)
+$\bar{x}-t_{0.025,12} \left( \frac{s}{\sqrt{n}} \right)\le\mu\le\bar{x}+t_{0.025,12} \left( \frac{s}{\sqrt{n}} \right)$
+$\\ \mu=4.313;\; s=0.4328;\; n=13;\;t_{0.025,12}=2.179\\$
+$4.313\pm2.179\left( \frac{0.4328}{\sqrt{13}} \right) \rightarrow 4.051\le\mu\le 4.575$
+```{r 8-41b}
+mean(speed)
+sd(speed)
+length(speed)
+qt(.025,12)
+qt(.05,12)
+```
+
+## c)
+$\bar{x}-t_{0.05,12} \left( \frac{s}{\sqrt{n}} \right)\le\mu$
+$\\ \mu=4.313;\; s=0.4328;\; n=13;\;t_{0.05,12}=1.782\\$
+$4.313-1.782\left( \frac{0.4328}{\sqrt{13}} \right) \rightarrow 4.099\le\mu$
+
+
+
+
 # 8-53
+```{r 8-53}
+temp = c(23.3, 21.7, 21.6, 21.7, 21.3, 20.7, 20.9, 20.1)
+qqnorm(temp)
+qqline(temp)
+
+
+library(nortest)
+ad.test(temp)
+sd(temp)
+length(temp)
+```
+$n=8;\; s=0.9463\\$
+$\chi_{\alpha/2,n-1}^2 =\chi_{0.025,7}^2 =16.012;\;\chi_{0.975,7}^2 =1.689\\$
+$\frac{7(0.9463)^2}{16.012}\le\sigma^2\le\frac{7(0.9463)^2}{1.689}=0.392\le\sigma^2\le3.709 \rightarrow 0.626\le\sigma\le1.926$
+
+# Q2
+
