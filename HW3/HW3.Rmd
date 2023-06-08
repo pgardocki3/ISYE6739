@@ -59,6 +59,7 @@ kable(df[c(2,1,3,4,5)], "latex", align="c", caption="Frecquency Distribution Tab
 ```
 
 
+
 # 6-81
 ```{r 6-81}
 Expr = read.table("6-81.txt",header = TRUE)
@@ -124,7 +125,7 @@ $E(S_P^2) = E(\frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2})= \frac{1}{n_1+n_2-2} 
 $f(x)=p(1-p)^{x-1}\\$
 $L(p) =\prod\limits_{i=1}^n p(1-p)^{x_i-1} = p^n(1-p)^{\sum\limits_{i=1}^n x_i-n}\\$
 $l(p)=nln(p) + (\sum\limits_{i=1}^n x_i-n)ln(1-p)$
-$\\\frac{\partial l}{\partial u} = 0 = \frac{n}{p}-\frac{\sum\limits_{i=1}^n x_i-n}{1-p} =\frac{n(1-p)-p\sum\limits_{i=1}^n x_i-n}{p(1-p)} = n-p\sum\limits_{i=1}^n x_i \therefore\\ p= \frac{n}{\sum\limits_{i=1}^n x_i}\\$
+$\\\frac{\partial l}{\partial u} = 0 = \frac{n}{p}-\frac{\sum\limits_{i=1}^n x_i-n}{1-p} =\frac{n(1-p)-p\sum\limits_{i=1}^n x_i-n}{p(1-p)} = n-p\sum\limits_{i=1}^n x_i \therefore\\ \hat{p}= \frac{n}{\sum\limits_{i=1}^n x_i}\\$
 
 
 
