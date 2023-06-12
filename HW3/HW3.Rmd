@@ -25,7 +25,7 @@ stem(octane, scale=2)
 
 
 
-# 6-46 REL DENSity is 1/2??????????
+# 6-46
 
 ```{r 6-46}
 octane = read.table("6-30.txt",header = TRUE)
@@ -121,7 +121,7 @@ $E(S_P^2) = E(\frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2})= \frac{1}{n_1+n_2-2} 
 
 
 
-# 7-44 CHECK!!!!!!!!!
+# 7-44 
 $f(x)=p(1-p)^{x-1}\\$
 $L(p) =\prod\limits_{i=1}^n p(1-p)^{x_i-1} = p^n(1-p)^{\sum\limits_{i=1}^n x_i-n}\\$
 $l(p)=nln(p) + (\sum\limits_{i=1}^n x_i-n)ln(1-p)$
@@ -161,6 +161,7 @@ library(nortest)
 ad.test(speed)
 
 ```
+Based on the plot, the data seems to follow a Normal distribution.
 
 ## b)
 $\bar{x}-t_{0.025,12} \left( \frac{s}{\sqrt{n}} \right)\le\mu\le\bar{x}+t_{0.025,12} \left( \frac{s}{\sqrt{n}} \right)$
@@ -198,6 +199,7 @@ $n=8;\; s=0.9463\\$
 $\chi_{\alpha/2,n-1}^2 =\chi_{0.025,7}^2 =16.012;\;\chi_{0.975,7}^2 =1.689\\$
 $\frac{7(0.9463)^2}{16.012}\le\sigma^2\le\frac{7(0.9463)^2}{1.689}=0.392\le\sigma^2\le3.709 \rightarrow 0.626\le\sigma\le1.926$
 
+Based on the plot, the data seems to follow a Normal distribution.
 
 # Q2
 

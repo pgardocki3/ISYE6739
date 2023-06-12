@@ -1,0 +1,45 @@
+---
+title: "HW 4"
+author: "Patrick Gardocki"
+date: "2023-06-15"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 9-20
+
+## a)
+$\alpha= P(\bar{X} \le4.85)+P(\bar{X} >5.15)=P(\frac{\bar{X}-5}{\frac{0.25}{\sqrt{8}}}\le\frac{4.85-5}{\frac{0.25}{\sqrt{8}}})+P(\frac{\bar{X}-5}{\frac{0.25}{\sqrt{8}}}>\frac{5.15-5}{\frac{0.25}{\sqrt{8}}})=P(Z\le-1.7)+P(Z>1.7)=0.04457+(1-0.95543)=0.08914$
+```{r 9-20a}
+pnorm(-1.7)+(1-pnorm(1.7))
+```
+
+## b)
+Power $=1-\beta\\$
+$\beta=P(4.85\le\bar{X}\le5.15)=P(\frac{4.85-5.1}{\frac{0.25}{\sqrt{8}}}\le\frac{\bar{X}-5.1}{\frac{0.25}{\sqrt{8}}}\le\frac{5.15-5.1}{\frac{0.25}{\sqrt{8}}})=P(-2.83\le Z\le0.566)=P(Z\le0.566)-P(Z\le-2.83)=0.71566-0.00233=0.7133$
+```{r 9-20b}
+pnorm(0.566)-(pnorm(-2.83))
+```
+
+# 9-23
+
+# 9-43(a)(b)
+
+# 9-64 (a)(b)(e)
+
+# 9-98
+
+# 10-4(a)(b)(c)
+
+# 10-14
+
+# 10-24
+
+# 10-52
+
+# 10-88
+
+
