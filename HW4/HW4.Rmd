@@ -24,22 +24,146 @@ $\beta=P(4.85\le\bar{X}\le5.15)=P(\frac{4.85-5.1}{\frac{0.25}{\sqrt{8}}}\le\frac
 pnorm(0.566)-(pnorm(-2.83))
 ```
 
+
 # 9-23
 
-# 9-43(a)(b)
+## a) $\bar{x}=5.2$
+$z_o=\frac{5.2-5}{\frac{0.25}{\sqrt{8}}}=2.26\\$
+P-value=$2(1-\Phi(|2.26|))=2(1-0.988)=0.0238$
+```{r 9-23a}
+2*(1-pnorm(2.26))
+```
 
-# 9-64 (a)(b)(e)
+## b) $\bar{x}=4.7$
+$z_o=\frac{4.7-5}{\frac{0.25}{\sqrt{8}}}=2.26\\$
+P-value=$2(1-\Phi(|-3.39|))=2(1-0.999)=0.00069$
+```{r 9-23b}
+2*(1-pnorm(3.39))
+```
+
+
+## c) $\bar{x}=5.1$
+$z_o=\frac{5.1-5}{\frac{0.25}{\sqrt{8}}}=2.26\\$
+P-value=$2(1-\Phi(|1.131|))=2(1-0.870)=0.258$
+```{r 9-23c}
+2*(1-pnorm(1.131))
+```
+
+
+
+# 9-43(a)(b)!!!!!!!!!!!!!
+
+## a)
+if $z_0 < -z_{\alpha/2}$ or $z_0 > z_{\alpha/2}$, reject $H_o$.
+$\alpha = 0.05,\;\sigma=0.9\\ z_o=\frac{2.78-3}{\frac{0.9}{\sqrt{15}}}=-0.95\\-z_{0.025}=-1.96< -0.95 \therefore$ fails to reject null hypothesis
+
+
+## b)
+
+?????????????????????
+
+# 9-64 (a)(b)(e)!!!!!!!!!!!!!!!!!!!!!!!!
+
+## a)
+if $t_0 > t_{\alpha,n-1}$, reject $H_o$.
+$\alpha = 0.01,\;t_{0.01,19}=2.539,\; \bar{x}=26.04,\; s=4.78\\ t_o=\frac{26.04-25}{\frac{4.78}{\sqrt{20}}}=0.97\\t_{0.01,19}=2.539> 0.97 \therefore$ fails to reject null hypothesis. Insufficient evidence to show that rainfall is greater than 25 acre-feet.
+!!!!!!!!!!!!!!!!!!!!!!P-value=$2(1-\Phi(|2.539|))=2(1-0.988)=0.0238$
+
+
+## b)
+```{r 9-64b}
+data = c(18,30.7,19.8,27.1,22.3,18.8,31.8,23.4,21.2,27.9,31.9,27.1,25.0,24.7,26.9,21.8,29.2,34.8,26.7,31.6)
+qqnorm(data)
+qqline(data)
+```
+The plot suggests that the data follows a normal distribution.
+## e)
+
 
 # 9-98
 
+## a)
+if $z_0 < -z_{\alpha/2}$ or $z_0 > z_{\alpha/2}$, reject $H_o$.
+$\alpha = 0.05,\;x=117,\; n=484\\ z_o=\frac{117-484*0.5}{\sqrt{484*0.5*0.5}}=-11.36\\-z_{0.025}=-1.96> -11.36 \therefore$ null hypothesis is rejected and proportion of students planning graduate studies is not 0.5 with $\alpha=0.05$.
+
+P-value $=2(1-\Phi(11.36))\approx0$
+
+## b)
+Using a two-sided confidence interval, if the confidence interval does not contain 0.5, then the proportion of students planning graduate studies is not 0.5 with $\alpha=0.05$.
+
+$\hat{p}=\frac{117}{484}\\0.242-1.96\sqrt{\frac{0.242*0.758}{484}}\le p \le0.242+1.96\sqrt{\frac{0.242*0.758}{484}}=0.204\le p \le 0.280$
+
+
+
 # 10-4(a)(b)(c)
+
+## a)
+$H_o:\;\mu_1-\mu_2=0\\H_1:\; \mu_1-\mu2\ne0\\Reject\; H_o\;if\;z_o<-z_{\alpha/2}\; or\; z_o>z_{\alpha/2}\\\sigma_1=0.02,\;\sigma_2=0.025,\; \bar{x_1}=16.015,\; \bar{x_2}=16.005\\z_o=\frac{16.015-16.005}{\sqrt{\frac{0.020^2}{10}+\frac{0.025^2}{10}}}=0.79 \rightarrow-1.96<0.702<1.96 \therefore$ fail to reject null hypothesis. There is no good proof that the machines fill volumes are different.
+
+P-Value= $2(1-\Phi(0.702))=0.4826$
+```{r 10-4a}
+test1= c(16.03, 16.01, 16.04, 15.96, 16.05, 15.98, 16.05, 16.02, 16.02, 15.99)
+test2= c( 16.02, 16.03,15.97, 16.04, 15.96, 16.02,16.01, 16.01, 15.99, 16.00)
+mean(test1)
+mean(test2)
+```
+
+## b)
+$(16.015-16.005)-1.96\sqrt{\frac{0.020^2}{10}+\frac{0.025^2}{10}}\le \mu_1-\mu_2 \le (16.015-16.005)+1.96\sqrt{\frac{0.020^2}{10}+\frac{0.025^2}{10}} \rightarrow -0.01789 \le \mu_1-\mu_2 \le 0.03789$ Since the interval contains 0, there is no difference between the means with a 95% confidence interval. 
+
+## c)
+$\beta=\Phi \left(1.96- \frac{0.04}{\sqrt{\frac{0.020^2}{10}+\frac{0.025^2}{10}}} \right)-\Phi \left(-1.96- \frac{0.04}{\sqrt{\frac{0.020^2}{10}+\frac{0.025^2}{10}}} \right)= \Phi(1.96-3.95)-\Phi(-1.96-3.95)=0.02329$
+
+
 
 # 10-14
 
+## a)
+$s_p=\sqrt{\frac{(12-1)1.26^2+(16-1)1.99^2}{12+16-2}}=1.719\\t_o=\frac{-1.21}{1.719\sqrt{\frac{1}{12}+\frac{1}{16}}}=-1.842\\$
+Degree of Freedom= $n_1+n_2-2=12+16-2=26$
+P-value: $2(P(t>1.842))= 0.077 \rightarrow 2(0.025)< 0.077 <2(0.05)$
+Pooled Standard Deviation: $\sqrt{\frac{1.26^2 + 1.99^2}{2}}=1.665$
+This is a two sided test because $H_o: \mu_1-\mu_2=0$
+
+## b)
+Since $ 2(0.025)< 0.077 <2(0.05)$, fail to reject the null hypothesis for $\alpha =0.05 \; and\; 0.01$.
+
+## c)
+The sample standard deviations are only slightly different so it can be assumed that the sample variance is also similar.
+
+## d)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+
 # 10-24
+
+
 
 # 10-52
 
+## a)
+```{r 10-52}
+data = c(-1,2,2,3,-5,3,6,1,2,-1,-2,-2)
+qqnorm(data)
+qqline(data)
+mean(data)
+sd(data)
+qt(.975,11)
+x = c(17,16,21,14,18,24,16,14,21,23,13,18)
+y= c(18,14,19,11,23,21,10,13,19,24,15,20)
+t.test(x, y, paired = TRUE, alternative = "two.sided")
+```
+
+The data seems to follow a normal distribution.
+
+## b)
+
+$0.667 -2.201(\frac{2.964}{\sqrt{12}})\le \mu_d \le 0.667 +2.201(\frac{2.964}{\sqrt{12}}) \rightarrow -1.216 \le \mu_d \le 2.55$
+
+Since interval contains 0, can not determine if either language is preferable.
+
 # 10-88
+
+
 
 
