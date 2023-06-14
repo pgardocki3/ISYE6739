@@ -12,14 +12,14 @@ knitr::opts_chunk$set(echo = TRUE)
 # 9-20
 
 ## a)
-$\alpha= P(\bar{X} \le4.85)+P(\bar{X} >5.15)=P(\frac{\bar{X}-5}{\frac{0.25}{\sqrt{8}}}\le\frac{4.85-5}{\frac{0.25}{\sqrt{8}}})+P(\frac{\bar{X}-5}{\frac{0.25}{\sqrt{8}}}>\frac{5.15-5}{\frac{0.25}{\sqrt{8}}})=P(Z\le-1.7)+P(Z>1.7)=0.04457+(1-0.95543)=0.08914$
+$\alpha= P(\bar{X} \le4.85)+P(\bar{X} >5.15)=P(\frac{\bar{X}-5}{\frac{0.25}{\sqrt{8}}}\le\frac{4.85-5}{\frac{0.25}{\sqrt{8}}})+P(\frac{\bar{X}-5}{\frac{0.25}{\sqrt{8}}}>\frac{5.15-5}{\frac{0.25}{\sqrt{8}}})=P(Z\le-1.7)+P(Z>1.7)=0.04457+(1-0.95543)=0.08913$
 ```{r 9-20a}
 pnorm(-1.7)+(1-pnorm(1.7))
 ```
 
 ## b)
 Power $=1-\beta\\$
-$\beta=P(4.85\le\bar{X}\le5.15)=P(\frac{4.85-5.1}{\frac{0.25}{\sqrt{8}}}\le\frac{\bar{X}-5.1}{\frac{0.25}{\sqrt{8}}}\le\frac{5.15-5.1}{\frac{0.25}{\sqrt{8}}})=P(-2.83\le Z\le0.566)=P(Z\le0.566)-P(Z\le-2.83)=0.71566-0.00233=0.7133$
+$\beta=P(4.85\le\bar{X}\le5.15)=P(\frac{4.85-5.1}{\frac{0.25}{\sqrt{8}}}\le\frac{\bar{X}-5.1}{\frac{0.25}{\sqrt{8}}}\le\frac{5.15-5.1}{\frac{0.25}{\sqrt{8}}})=P(-2.83\le Z\le0.566)=P(Z\le0.566)-P(Z\le-2.83)=0.71566-0.00233=0.7119$
 ```{r 9-20b}
 pnorm(0.566)-(pnorm(-2.83))
 ```
@@ -51,7 +51,7 @@ P-value=$2(1-\Phi(|1.131|))=2(1-0.870)=0.258$
 
 
 
-# 9-43(a)(b)!!!!!!!!!!!!!
+# 9-43(a)(b)
 
 ## a)
 if $z_0 < -z_{\alpha/2}$ or $z_0 > z_{\alpha/2}$, reject $H_o$.
@@ -59,15 +59,17 @@ $\alpha = 0.05,\;\sigma=0.9\\ z_o=\frac{2.78-3}{\frac{0.9}{\sqrt{15}}}=-0.95\\-z
 
 
 ## b)
-
-?????????????????????
+$z_{0.025}=1.96$
+$\beta=\Phi(z_{0.025}+\frac{3-3.25}{0.9/\sqrt15})-\Phi(-z_{0.025}+\frac{3-3.25}{0.9/\sqrt15})=\Phi(0.88) -\Phi(-3.04)=0.80939$
 
 # 9-64 (a)(b)(e)!!!!!!!!!!!!!!!!!!!!!!!!
 
 ## a)
 if $t_0 > t_{\alpha,n-1}$, reject $H_o$.
 $\alpha = 0.01,\;t_{0.01,19}=2.539,\; \bar{x}=26.04,\; s=4.78\\ t_o=\frac{26.04-25}{\frac{4.78}{\sqrt{20}}}=0.97\\t_{0.01,19}=2.539> 0.97 \therefore$ fails to reject null hypothesis. Insufficient evidence to show that rainfall is greater than 25 acre-feet.
-!!!!!!!!!!!!!!!!!!!!!!P-value=$2(1-\Phi(|2.539|))=2(1-0.988)=0.0238$
+
+
+!!!!!!!!!!!!!!!!!!!!!!P-value=$2(1-\Phi(|2.539|))=8$
 
 
 ## b)
@@ -77,9 +79,13 @@ qqnorm(data)
 qqline(data)
 ```
 The plot suggests that the data follows a normal distribution.
+
 ## e)
-
-
+$26.04-2.539(\frac{4.78}{\sqrt{20}}) \le\mu \rightarrow 23.326 \le \mu$
+Since the lower limit is less than the mean diameter, no evidence that true mean rainfall is greater.
+```{r 9-64e}
+qt(.01,19)
+```
 # 9-98
 
 ## a)
@@ -126,17 +132,37 @@ Pooled Standard Deviation: $\sqrt{\frac{1.26^2 + 1.99^2}{2}}=1.665$
 This is a two sided test because $H_o: \mu_1-\mu_2=0$
 
 ## b)
-Since $ 2(0.025)< 0.077 <2(0.05)$, fail to reject the null hypothesis for $\alpha =0.05 \; and\; 0.01$.
+Since $2(0.025)< 0.077 <2(0.05)$, fail to reject the null hypothesis for $\alpha =0.05 \; and\; 0.01$.
 
 ## c)
 The sample standard deviations are only slightly different so it can be assumed that the sample variance is also similar.
 
 ## d)
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+P-value: $P(t<-1.842)=0.0326,\; 0.025 < 0.0326 < 0.05 \therefore$ P-value is less than $\alpha=0.05$, and null hypothesis is rejected.
+
+
+```{r 10-14d}
+pnorm(-1.8428)
+```
 
 
 # 10-24
 
+## a)
+$H_0: \mu_1-\mu_2=0\\H_1: \mu_1-\mu_2<0\\v=\frac{\left(\frac{12^2}{10}+ \frac{22^2}{16} \right)^2}{\frac{(\frac{12^2}{10})^2}{10-1}+\frac{(\frac{22^2}{16})^2}{16-1}}\approx 23 \\t_{0.05,23}=1.714,\; \bar{x_1}=290,\; \bar{x_2}=321,\;s_1=12,\;s_2=22\\t_0=\frac{290-321}{\sqrt{\frac{12^2}{10}+\frac{22^2}{16}}}=-4.64$
+
+Null Hypothesis is rejected if $t_o < -t_{\alpha,v}$. Since -4.64 < -1.714, null hypothesis is rejected and supplier 2 makes gears with higher mean impact strength.
+
+## b)
+
+$H_0: \mu_1-\mu_2=25\\H_1: \mu_1-\mu_>25\\v=\approx 23 \\t_{0.05,23}=1.714,\; \bar{x_1}=290,\; \bar{x_2}=321,\;s_1=12,\;s_2=22,\; \Delta_0=25\\t_0=\frac{(321-290)-25}{\sqrt{\frac{12^2}{10}+\frac{22^2}{16}}}=0.898$
+
+Null Hypothesis is rejected if $t_o > t_{\alpha,v}$. Since 0.898 < 1.714, fail to reject null hypothesis and no evidence that supplier 2 makes gears with mean impact strength 25 ft-lb higher than supplier 1. 
+
+## c)
+$t_{0.025,25}=2.0598\\ (321-290)-2.059\sqrt{\frac{12^2}{10}+ \frac{22^2}{16}} \le\mu_2-\mu_1 \le(321-290)+2.059\sqrt{\frac{12^2}{10}+ \frac{22^2}{16}}\\17.242 \le\mu_2-\mu_1 \le44.758$
+
+Interval does not contain 0, this means that supplier 2 makes gears with higher impact strength.
 
 
 # 10-52
@@ -164,6 +190,21 @@ Since interval contains 0, can not determine if either language is preferable.
 
 # 10-88
 
+## a)
+$H_o: p_1=p_2,\; H_1=p_1\ne p_2\\ n_1=500,\; n_2=400,\; x_1=385,\; x_2=267,\; \hat{p_1}=0.77,\; \hat{p_2}=0.6675,\; \hat{p}=\frac{385+267}{500+400}=0.724\\ z_o= \frac{0.77-0.6675}{\sqrt{0.724(1-0.724) \left( \frac{1}{500} + \frac{1}{400} \right)}}=3.42\\$
+
+$H_o$ rejected if $z_o < -z_{\alpha/2}$ or $z_o > z_{\alpha/2},\; 3.42> 1.96 \therefore$ null hypothesis is rejected and there is a difference in support between counties.
+
+P-value: $2(1-P(Z<3.42))=0.000626$
+
+``` {r 10-88}
+2*(1-pnorm(3.42))
+```
+
+## b)
+$(0.77-0.6675)-1.96\sqrt{\frac{0.77(1-0.77)}{500}+\frac{0.6675(1-0.6675)}{400}} \le p_1-p_2 \le (0.77-0.6675)+1.96\sqrt{\frac{0.77(1-0.77)}{500}+\frac{0.6675(1-0.6675)}{400}} \rightarrow0.0434 \le p_1-p_2 \le 0.1616$
+
+Proportion lies between 0.0434 and 0.1616 with 95% confidence. The interval does not contain 0, implying that there is a difference between counties.
 
 
 
